@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import { Link } from "react-router-dom";
-import image1 from "../photos/background.jpg";
+import image1 from "./background.jpg"; // Import the background image
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase"; // Your Firebase configuration file
+import { auth } from "../firebase"; // Your Firebase configuration file
 
-function LoginPage() {
+function LoginPage({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize useNavigate
@@ -22,7 +22,8 @@ function LoginPage() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Handle successful login
-        navigate("/options"); // Navigate to Options.jsx on successful login
+        onLogin(); // Notify parent component about login
+        navigate("/interviewsystem"); // Navigate to Options.jsx on successful login
       })
       .catch((error) => {
         // Handle errors
@@ -99,7 +100,7 @@ function LoginPage() {
           </form>
           <p className="text-center text-sm mt-4">
             Don't have an account?{" "}
-            <Link to="/signup"     className="text-blue-500 hover:underline dark:text-purple-400">
+            <Link to="/signup" className="text-blue-500 hover:underline dark:text-purple-400">
               Sign Up
             </Link>
           </p>

@@ -1,41 +1,36 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
-// Import necessary components for routing
-import "./App.css"
-import "./index.css"; // Import global CSS for styling
-import Title from "./src/components/Title.jsx"; // Import the Title component for the header
-import LoginPage from "./src/components/LoginPage.jsx"; // Import the LoginPage component
-import SignUp from "./src/components/SignUp.jsx"; // Import the SignUp component
-import Options from "./src/components/Options.jsx"; // Import the Options component for user options
-import Questions from "./src/components/Questions.jsx"; // Import the Questions component for question suggestions
-import FullForm from "./src/components/FullForm.jsx"; // Import the FullForm component for interviewer form fill
-import History from "./src/components/History.jsx"; // Import the History component (ensure it's available)
-import { ThemeProvider } from "./src/components/ThemeContext.jsx";
-import { createContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
+import "./index.css";
+import LoginPage from "./src/components/connection/LoginPage.jsx";
+import SignUp from "./src/components/connection/SignUp.jsx";
+import Interviewsystem from "./src/components/general/InterviewSystem.jsx";
 
-export const ThemeContext =createContext(null);
-
-// Define the App component
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+
   return (
-    <ThemeProvider>
-      <Router> {/* Enable routing in the application */}
-        <Title /> {/* Render the Title component at the top of the app */}
-        <Routes> {/* Define routes for navigation */}
-          <Route path="/" element={<LoginPage />} /> 
-          {/* Route for the login page, accessible at the root URL */}
-          <Route path="/signup" element={<SignUp />} /> 
-          {/* Route for the sign-up page */}
-          <Route path="/options" element={<Options />} /> 
-          {/* Route for the options page */}
-          <Route path="/questions" element={<Questions />} />
-          {/* Route for the questions page */}
-          <Route path="/fullform" element={<FullForm />} />
-          {/* Route for the FullForm page */}
-          <Route path="/history" element={<History />} />
-          {/* Route for the history page */}
-        </Routes>
-      </Router>
-      </ThemeProvider>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<LoginPage onLogin={() => setIsLoggedIn(true)} />}
+        />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Main route to render Interviewsystem if logged in */}
+        <Route
+          path="/main"
+          element={isLoggedIn ? <Interviewsystem /> : <Navigate to="/" />}
+        />
+
+        {/* InterviewSystem route if logged in */}
+        <Route
+          path="/interviewsystem"
+          element={isLoggedIn ? <Interviewsystem /> : <Navigate to="/" />}
+        />
+      </Routes>
+    </Router>
   );
 }
 

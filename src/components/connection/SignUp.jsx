@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import image1 from "../photos/background.jpg"; // Import the background image
+import image1 from "./background.jpg"; // Import the background image
 import { Link } from "react-router-dom"; // Link component for navigation
 import { createUserWithEmailAndPassword } from "firebase/auth"; // Firebase method for creating a new user
-import { auth, database } from "./firebase"; // Import Firebase authentication and database
+import { auth, database } from "../firebase"; // Import Firebase authentication and database
 import { ref, set, get } from "firebase/database"; // Firebase Realtime Database methods
 
 function SignUp() {
