@@ -1,8 +1,8 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Users, AlertTriangle, TrendingUp, Calendar, Plus, Eye, Trash2, Edit, Bell, MessageSquare } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Users, AlertTriangle, TrendingUp, Plus, Eye, Trash2, Edit, Bell, MessageSquare } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 function EnhancedInstructorDashboard({ onLogout }) {
   const [activeTab, setActiveTab] = useState('teams');
@@ -189,7 +189,7 @@ function EnhancedInstructorDashboard({ onLogout }) {
       });
       fetchData();
       alert('✅ צוות נמחק');
-    } catch (error) {
+    } catch {
       alert('שגיאה במחיקת צוות');
     }
   };
@@ -262,7 +262,7 @@ return (
           <div className="bg-white rounded-xl shadow-lg p-6 border-r-4 border-blue-500">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm mb-1">סה"כ צוותים</p>
+                <p className="text-gray-600 text-sm mb-1">סה&quot;כ צוותים</p>
                 <p className="text-3xl font-bold">{teams.length}</p>
               </div>
               <Users className="w-12 h-12 text-blue-500" />
@@ -690,7 +690,7 @@ return (
                     <h3 className="font-bold text-xl">
                       {selectedTeam.teamId} - {selectedTeam.projectName}
                     </h3>
-                    <p className="text-gray-600">סה"כ {teamHistory.length} שיחות</p>
+                    <p className="text-gray-600">סה&quot;כ {teamHistory.length} שיחות</p>
                   </div>
 
                   {teamHistory.length === 0 ? (

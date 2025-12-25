@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { authAPI } from "../../services/api";
 import image1 from "./background.jpg";
@@ -80,7 +80,7 @@ function LoginPage({ onLogin }) {
           </button>
 
           <p className="text-center text-gray-600 mt-4">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link to="/signup" className="text-blue-500 hover:underline">
               Sign Up
             </Link>

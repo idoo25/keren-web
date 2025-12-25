@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Brain, Users, Send, Sparkles } from 'lucide-react';
 import { groupReflectionsAPI } from '../../services/api';
 import { callClaude } from './ConversationService';

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { authAPI } from "../../services/api";
 import image1 from "./background.jpg";
@@ -105,7 +105,7 @@ function SignUp() {
               <option value="instructor">Instructor</option>
             </select>
             <p className="text-sm text-gray-500 mt-1">
-              Select "Instructor" if you are a teacher/professor
+              Select &quot;Instructor&quot; if you are a teacher/professor
             </p>
           </div>
 

@@ -1,8 +1,8 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, BarChart, Sparkles } from 'lucide-react';
 import { groupReflectionsAPI, doublebotAPI } from '../../services/api';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 function EnhancedStudentInterface() {
   const [stage, setStage] = useState('loading');

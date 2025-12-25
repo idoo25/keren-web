@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CustomQuestionInput = ({ setCustomQuestions }) => {
   const [customQuestion, setCustomQuestion] = useState("");

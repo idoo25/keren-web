@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { useState } from "react";
 import "./App.css";
 import "./index.css";
-import LoginPage from "./src/components/connection/LoginPage.jsx";
-import SignUp from "./src/components/connection/SignUp.jsx";
-import Interviewsystem from "./src/components/general/InterviewSystem.jsx";
+import LoginPage from "./components/connection/LoginPage.jsx";
+import SignUp from "./components/connection/SignUp.jsx";
+import Interviewsystem from "./components/general/InterviewSystem.jsx";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
