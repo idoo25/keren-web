@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const AIQuestionGenerator = ({ topicInput, setGeneratedQuestions, setIsLoading }) => {
   const [error, setError] = useState("");
 
-  const apiKey = "AIzaSyCwWfGIlhfpmA3TAv7yi6p2zdHrJeTp2Lk";
+  const apiKey = import.meta.env.VITE_GOOGLE_AI_API_KEY || "AIzaSyCwWfGIlhfpmA3TAv7yi6p2zdHrJeTp2Lk";
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-2.0-flash-exp",

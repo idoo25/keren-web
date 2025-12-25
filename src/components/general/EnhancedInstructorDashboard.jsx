@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Users, AlertTriangle, TrendingUp, Plus, Eye, Trash2, Edit, Bell, MessageSquare } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 function EnhancedInstructorDashboard({ onLogout }) {
   const [activeTab, setActiveTab] = useState('teams');
