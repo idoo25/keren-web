@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { db, auth } from "../firebase"; // Import Firebase modules
 import { ref, query, orderByChild, equalTo, get } from "firebase/database"; // Realtime Database query functions
 
 const InterviewHistory = ({ selectedInterview, setSelectedInterview, handleGetSummary, summary }) => {
   const [interviews, setInterviews] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setCurrentUser(user);
         fetchInterviews(user.uid); // Fetch interviews when the user is authenticated
-      } else {
-        setCurrentUser(null);
       }
     });
     return () => unsubscribe();

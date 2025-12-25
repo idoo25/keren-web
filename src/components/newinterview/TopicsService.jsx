@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { db, push, ref, auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import AIQuestionGenerator from "./AIQuestionGenerator";
@@ -215,4 +215,4 @@ const TopicsService = () => {
   );
 };
 
-export default TopicsService;
+export default TopicsService;

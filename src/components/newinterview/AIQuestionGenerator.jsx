@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const AIQuestionGenerator = ({ topicInput, setGeneratedQuestions, setIsLoading }) => {

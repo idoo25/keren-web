@@ -1,4 +1,3 @@
-import React from 'react'; // Import React library
 
 // Define a functional component
 const Column = ({ content }) => {

@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, BarChart, Sparkles } from 'lucide-react';
 import { groupReflectionsAPI, doublebotAPI } from '../../services/api';
 

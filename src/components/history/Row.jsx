@@ -1,4 +1,3 @@
-import React from 'react';
 import Column from './Column'; // Import the Column component to render individual table cells
 
 // Define the Row component, which represents a single row in a table

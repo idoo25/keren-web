@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Users, MessageSquare, Eye } from 'lucide-react';
 import { instructorAPI } from '../../services/api';
 
